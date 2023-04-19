@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+// import Hooks from "./components/Hooks/Hooks";
+import Form from "./components/Form/Form";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { AuthProvider } from "./components/Form/context/AuthProvider";
+// import Notes from './components/NotesApp/Notes'
+// import ColorsName from "./components/colorsName/ColorsName";
+// import JsonPlaceholder from "./components/jsonplaceholder/JsonPlaceholder";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* <Notes/> */}
+      {/* <ColorsName /> */}
+      {/* <JsonPlaceholder/> */}
+      {/* <Hooks/> */}
+      <BrowserRouter>
+        <AuthProvider>
+          <Routes>
+            <Route path="/*" element={<Form />} />
+          </Routes>
+        </AuthProvider>
+      </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
